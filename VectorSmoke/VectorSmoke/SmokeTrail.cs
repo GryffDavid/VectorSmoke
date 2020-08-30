@@ -13,8 +13,7 @@ namespace VectorSmoke
     {
         Texture2D Texture;
 
-        VertexPositionColor[] vertices = new VertexPositionColor[41];
-        VertexPositionColor[] vertices2 = new VertexPositionColor[81];
+        VertexPositionColor[] vertices = new VertexPositionColor[81];
 
         Vector2 StartPosition = new Vector2(1920/2, 1080/2);
 
@@ -32,10 +31,8 @@ namespace VectorSmoke
 
         class SmokePoint
         {
-            public Vector2 Position, Direction, Tangent;
-            public float VerticalFriction = 1.0f;
-            public float HorizontalGravity;
-            public float Width = 10;
+            public Vector2 Position, Velocity, Friction, Acceleration, Direction;
+            public float Width;
         }
 
         float Rad1 = 100;
@@ -46,9 +43,9 @@ namespace VectorSmoke
 
         float VFriction = 1.0f;
         float NextVFriction = 1.0f;
+
         List<SmokePoint> Positions = new List<SmokePoint>();
 
-        KeyboardState CurrentKeyboardState, PreviousKeyboardState;
 
         Color Color = Color.White * 0.5f;
 
@@ -68,7 +65,6 @@ namespace VectorSmoke
             }
 
             MaxTime3 = 1000f;
-
             MaxTime = 250;
         }
 
@@ -80,16 +76,9 @@ namespace VectorSmoke
 
         public void Update(GameTime gameTime)
         {
-            CurrentKeyboardState = Keyboard.GetState();
-
             CurrentTime += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             Time2 += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             Time3 += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
-
-            if (CurrentKeyboardState != PreviousKeyboardState)
-            {
-                int p = 0;
-            }
 
             #region Add a new point
             if (Time2 > 60)
@@ -99,53 +88,48 @@ namespace VectorSmoke
                     Positions.RemoveAt(vertices.Length/2);
                 }
 
-                Positions.Insert(0, new SmokePoint() { Position = StartPosition, Width = Random.Next(10, 20) });
+                Positions.Insert(0, new SmokePoint() 
+                { 
+                    Position = StartPosition, Width = Random.Next(8, 12),
+                    Friction = new Vector2(1.0f, 1.0f)
+                });
 
                 Time2 = 0;
             }
             #endregion
-
-            #region Vertices
+            
+            #region Update SmokePoints
             for (int i = 1; i < Positions.Count - 1; i++)
             {
-                Vector2 Dir;
+                Vector2 Dir, NewDir;
                 double angle;
-                Vector2 newDir;
 
-                Dir = Positions[i-1].Position - Positions[i + 1].Position;
+                Dir = Positions[i - 1].Position - Positions[i + 1].Position;
                 Dir.Normalize();
 
-                Positions[i].Tangent = Dir;
-
                 angle = Math.Atan2(Dir.Y, Dir.X) - MathHelper.ToRadians(90);
-                newDir = new Vector2((float)Math.Cos(angle), (float)Math.Sin(angle));
+                NewDir = new Vector2((float)Math.Cos(angle), (float)Math.Sin(angle));
+                NewDir.Normalize();
 
-                Positions[i].Direction = newDir;
+                Positions[i].Direction = NewDir;
             }
 
             Positions[0].Direction = new Vector2(1, 0);
-            //Positions[0].Width = 20;
+            #endregion
 
+            #region Vertices
             for (int i = 0; i < vertices.Length - 1; i += 2)
             {
                 MaxWidth = Positions[i / 2].Width;
                 float newWidth = MathHelper.Lerp(MaxWidth, 0, (1.0f / (vertices.Length / 2)) * (i / 2));
 
                 Vector2 newDir = Positions[i / 2].Direction;
-                Vector2 dir = Positions[i / 2].Tangent;
 
                 vertices[i].Position = new Vector3(Positions[i / 2].Position.X - (newDir.X * newWidth),
                                                    Positions[i / 2].Position.Y - (newDir.Y * newWidth), 0);
 
                 vertices[i + 1].Position = new Vector3(Positions[i / 2].Position.X + (newDir.X * newWidth),
                                                        Positions[i / 2].Position.Y + (newDir.Y * newWidth), 0);
-
-
-                vertices2[i].Position = new Vector3(Positions[i / 2].Position.X - (dir.X * newWidth),
-                                                    Positions[i / 2].Position.Y - (dir.Y * newWidth), 0);
-
-                vertices2[i + 1].Position = new Vector3(Positions[i / 2].Position.X + (dir.X * newWidth),
-                                                       Positions[i / 2].Position.Y + (dir.Y * newWidth), 0);
 
                 vertices[i].Color = Color.White;
                 vertices[i + 1].Color = Color.White;
@@ -158,19 +142,21 @@ namespace VectorSmoke
             #region Apply forces to the points
             for (int i = 1; i < Positions.Count; i++)
             {
-                Positions[i].Position += new Vector2(
-                    Positions[i].HorizontalGravity, 
-                    (-20 * (Positions[i].Position.Y / 800)) * Positions[i].VerticalFriction);
+                Positions[i].Velocity = new Vector2(
+                    Positions[i].Acceleration.X, 
+                    (-20 * (Positions[i].Position.Y / 800)) * Positions[i].Friction.Y);
+
+                Positions[i].Position += Positions[i].Velocity;
 
                 if (Positions[i].Position.Y > ControlPoint2.Y)
                 {
-                    Positions[i].HorizontalGravity -= -Vector2.Normalize((ControlPoint2 - StartPosition)).X * 0.08f;
+                    Positions[i].Acceleration.X -= -Vector2.Normalize((ControlPoint2 - StartPosition)).X * 0.08f;
                 }
 
                 if (Positions[i].Position.Y > ControlPoint3.Y &&
                     Positions[i].Position.Y < ControlPoint2.Y)
                 {
-                    Positions[i].HorizontalGravity -= -Vector2.Normalize((ControlPoint2 - StartPosition)).X * 0.2f;
+                    Positions[i].Acceleration.X -= -Vector2.Normalize((ControlPoint2 - StartPosition)).X * 0.2f;
                 }
 
                 if (Positions[i].Position.Y < ControlPoint3.Y)
@@ -178,7 +164,7 @@ namespace VectorSmoke
                     float dist = MathHelper.Clamp(Math.Abs(Positions[i].Position.X - StartPosition.X), 0, 120);
 
                     float perc = 100 - ((100 / 120) * dist);
-                    Positions[i].VerticalFriction = 1.0f - (perc / 200f);
+                    Positions[i].Friction.Y = 1.0f - (perc / 200f);
                 }
             }
             #endregion
@@ -220,9 +206,7 @@ namespace VectorSmoke
             ControlPoint1 = new Vector2(
                 2 * (float)Math.Cos(eightSize * t),
                     (float)Math.Sin((eightSize * 2f) * t)) * 200f + new Vector2(1920/2, 350);
-
-            //ControlPoint1 = new Vector2(Mouse.GetState().X, Mouse.GetState().Y);
-
+            
             ControlPoint2 = new Vector2(
                 Rad1 * (float)Math.Cos(t * tMult),
                 Rad2 * (float)Math.Sin(t * tMult)) + ControlPoint1;
@@ -234,8 +218,6 @@ namespace VectorSmoke
                 t = 0;
             }
             #endregion
-
-            PreviousKeyboardState = CurrentKeyboardState;
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -269,12 +251,6 @@ namespace VectorSmoke
                 pass.Apply();
                 graphics.DrawUserPrimitives(PrimitiveType.TriangleStrip, vertices, 0, vertices.Length - 2);
             }
-
-            //foreach (EffectPass pass in effect.CurrentTechnique.Passes)
-            //{
-            //    pass.Apply();
-            //    graphics.DrawUserPrimitives(PrimitiveType.LineList, vertices2, 0, vertices2.Length / 2);
-            //}
         }
 
         public double RandomDouble(double a, double b)
