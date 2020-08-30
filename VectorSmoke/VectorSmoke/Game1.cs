@@ -23,8 +23,8 @@ namespace VectorSmoke
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
-            graphics.PreferredBackBufferWidth = 1280;
-            graphics.PreferredBackBufferHeight = 720;
+            graphics.PreferredBackBufferWidth = 1920;
+            graphics.PreferredBackBufferHeight = 1080;
             //graphics.IsFullScreen = true;
             Content.RootDirectory = "Content";
         }
@@ -33,7 +33,7 @@ namespace VectorSmoke
         {
             // TODO: Add your initialization logic here
             BasicEffect = new BasicEffect(GraphicsDevice);
-            Projection = Matrix.CreateOrthographicOffCenter(0, 1280, 720, 0, 0, 1);
+            Projection = Matrix.CreateOrthographicOffCenter(0, 1920, 1080, 0, 0, 1);
 
             BasicEffect.Projection = Projection;
             base.Initialize();
