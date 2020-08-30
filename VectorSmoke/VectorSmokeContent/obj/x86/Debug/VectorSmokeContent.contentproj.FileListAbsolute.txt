@@ -8,3 +8,4 @@ C:\Users\Gryff\Desktop\Vector Smoke\VectorSmoke6\VectorSmoke\VectorSmokeContent\
 C:\Users\Gryff\Desktop\Vector Smoke\VectorSmoke7\VectorSmoke\VectorSmokeContent\obj\x86\Debug\VectorSmokeContent.contentprojResolveAssemblyReference.cache
 C:\Users\Gryff\Desktop\Vector Smoke\VectorSmoke7 - Vertices Working\VectorSmoke\VectorSmokeContent\obj\x86\Debug\VectorSmokeContent.contentprojResolveAssemblyReference.cache
 C:\Users\Gryff\Desktop\Vector Smoke\VectorSmoke8\VectorSmoke\VectorSmokeContent\obj\x86\Debug\VectorSmokeContent.contentprojResolveAssemblyReference.cache
+C:\Users\Gryff\Desktop\Vector Smoke\VectorSmoke9\VectorSmoke\VectorSmokeContent\obj\x86\Debug\VectorSmokeContent.contentprojResolveAssemblyReference.cache

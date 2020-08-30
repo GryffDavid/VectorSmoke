@@ -72,3 +72,11 @@ C:\Users\Gryff\Desktop\Vector Smoke\VectorSmoke8\VectorSmoke\VectorSmoke\obj\x86
 C:\Users\Gryff\Desktop\Vector Smoke\VectorSmoke8\VectorSmoke\VectorSmoke\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Gryff\Desktop\Vector Smoke\VectorSmoke8\VectorSmoke\VectorSmoke\obj\x86\Debug\VectorSmoke.exe
 C:\Users\Gryff\Desktop\Vector Smoke\VectorSmoke8\VectorSmoke\VectorSmoke\obj\x86\Debug\VectorSmoke.pdb
+C:\Users\Gryff\Desktop\Vector Smoke\VectorSmoke9\VectorSmoke\VectorSmoke\bin\x86\Debug\Content\Point.xnb
+C:\Users\Gryff\Desktop\Vector Smoke\VectorSmoke9\VectorSmoke\VectorSmoke\bin\x86\Debug\Content\SpriteFont.xnb
+C:\Users\Gryff\Desktop\Vector Smoke\VectorSmoke9\VectorSmoke\VectorSmoke\bin\x86\Debug\VectorSmoke.exe
+C:\Users\Gryff\Desktop\Vector Smoke\VectorSmoke9\VectorSmoke\VectorSmoke\bin\x86\Debug\VectorSmoke.pdb
+C:\Users\Gryff\Desktop\Vector Smoke\VectorSmoke9\VectorSmoke\VectorSmoke\obj\x86\Debug\VectorSmoke.csprojResolveAssemblyReference.cache
+C:\Users\Gryff\Desktop\Vector Smoke\VectorSmoke9\VectorSmoke\VectorSmoke\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Gryff\Desktop\Vector Smoke\VectorSmoke9\VectorSmoke\VectorSmoke\obj\x86\Debug\VectorSmoke.exe
+C:\Users\Gryff\Desktop\Vector Smoke\VectorSmoke9\VectorSmoke\VectorSmoke\obj\x86\Debug\VectorSmoke.pdb
