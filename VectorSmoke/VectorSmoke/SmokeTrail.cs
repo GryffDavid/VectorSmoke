@@ -19,9 +19,9 @@ namespace VectorSmoke
         //public List<Vector2> positions = new List<Vector2>();
         
         Vector2 StartPosition = new Vector2(400, 400);
-        Vector2 ControlPoint = new Vector2(400, 360);
-
-        Vector2 ControlPoint2 = new Vector2(400, 360);
+        Vector2 ControlPoint1 = new Vector2(400, 300);
+        Vector2 ControlPoint2 = new Vector2(200, 200);
+        Vector2 ControlPoint3 = new Vector2(600, 100);
 
         float Time;
         Random Random = new Random();
@@ -30,7 +30,7 @@ namespace VectorSmoke
         class SmokePoint
         {
             public Vector2 Position, Velocity;
-            public float VerticalFriction;
+            public float VerticalFriction = 1.0f;
             public float HorizontalGravity;
         }
 
@@ -48,37 +48,59 @@ namespace VectorSmoke
 
         public void Update(GameTime gameTime)
         {
-            //ControlPoint2 = new Vector2(Mouse.GetState().X, Mouse.GetState().Y);
-            ControlPoint2 = Vector2.Lerp(ControlPoint, new Vector2(Mouse.GetState().X, Mouse.GetState().Y), 0.01f);
+            //ControlPoint2 = Vector2.Lerp(ControlPoint2, new Vector2(Mouse.GetState().X, Mouse.GetState().Y), 0.2f);
+            //ControlPoint3 = Vector2.Lerp(ControlPoint3, ControlPoint2, 0.01f);
 
             Time += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
 
             if (Time > 60)
             {
-                Vector2 dir = ControlPoint - StartPosition;
-                dir.Normalize();
-                positions.Add(new SmokePoint() { Position = ControlPoint });
+                positions.Insert(0, new SmokePoint() { Position = ControlPoint1 });
                 Time = 0;
+
+                ControlPoint2 = Vector2.Lerp(ControlPoint2, new Vector2(Mouse.GetState().X, Mouse.GetState().Y), 0.2f);
+                ControlPoint3 = Vector2.Lerp(ControlPoint3, ControlPoint2, 0.01f);
             }
 
             for (int i = 1; i < positions.Count; i++)
             {
-                positions[i].Position += new Vector2(positions[i].HorizontalGravity, -3 * (positions[i].Position.Y/400));
+                positions[i].Position += new Vector2(positions[i].HorizontalGravity, (-3 * (positions[i].Position.Y/400)) * positions[i].VerticalFriction);
 
-                if (i == 50)
-                    positions[i].Position = Vector2.Lerp(positions[i].Position, ControlPoint2, 0.2f);
+                if (positions[i].Position.Y > ControlPoint2.Y)
+                {
+                    //positions[i].Position = Vector2.Lerp(positions[i].Position, ControlPoint2, 0.02f);
+                    positions[i].HorizontalGravity -= -Vector2.Normalize((ControlPoint2 - ControlPoint1)).X * 0.02f;
+                }
+
+                if (positions[i].Position.Y > ControlPoint3.Y && positions[i].Position.Y < ControlPoint2.Y)
+                {
+                    positions[i].HorizontalGravity += 0.02f;
+                    
+                    //positions[i].Position = Vector2.Lerp(positions[i].Position, ControlPoint3, 0.02f);
+                }
+
+                if (positions[i].Position.Y < ControlPoint3.Y)
+                {
+                    positions[i].VerticalFriction = 0.9999f;
+                }
             }
+
+            
 
             if (positions.Count >= 80)
             {                
-                positions.RemoveAt(0);
-            }        
+                positions.RemoveAt(79);
+            }            
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(Texture, StartPosition, Color.Red);
-            spriteBatch.Draw(Texture, ControlPoint, Color.Yellow);
+
+            spriteBatch.Draw(Texture, ControlPoint1, Color.Yellow);
+            spriteBatch.Draw(Texture, ControlPoint2, Color.Yellow);
+            spriteBatch.Draw(Texture, ControlPoint3, Color.Yellow);
+
 
             foreach (SmokePoint pos in positions)
             {
