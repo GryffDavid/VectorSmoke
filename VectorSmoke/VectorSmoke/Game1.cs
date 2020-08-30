@@ -36,6 +36,7 @@ namespace VectorSmoke
             Projection = Matrix.CreateOrthographicOffCenter(0, 1920, 1080, 0, 0, 1);
 
             BasicEffect.Projection = Projection;
+            BasicEffect.VertexColorEnabled = true;
             base.Initialize();
         }
         
