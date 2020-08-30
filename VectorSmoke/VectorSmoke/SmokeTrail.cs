@@ -87,7 +87,7 @@ namespace VectorSmoke
                 for (int i = 1; i < positions.Count; i++)
                 {
                     //Move the SmokePoint position
-                    positions[i].Position += new Vector2(positions[i].HorizontalGravity, (-3 * (positions[i].Position.Y / 800)) * positions[i].VerticalFriction);
+                    positions[i].Position += new Vector2(positions[i].HorizontalGravity, (-10 * (positions[i].Position.Y / 800)) * positions[i].VerticalFriction);
 
 
                     if (positions[i].Position.Y > ControlPoint2.Y)
@@ -110,11 +110,6 @@ namespace VectorSmoke
                 }
                 #endregion
 
-                //There can never be more than 40 points
-                //if (positions.Count >= 40)
-                //{
-                //    positions.RemoveAt(39);
-                //}
 
                 #region Move the control points
                 StartPosition = new Vector2(Mouse.GetState().X, Mouse.GetState().Y);
@@ -149,24 +144,40 @@ namespace VectorSmoke
                 #endregion
 
                 #region Vertices
-                //Base
-                vertices[0].Position = new Vector3(positions[0].Position.X - MaxWidth, positions[0].Position.Y, 0);
-                vertices[1].Position = new Vector3(positions[0].Position.X + MaxWidth, positions[0].Position.Y, 0);
+                #region Base
+                vertices[0].Position = new Vector3(positions[0].Position.X - MaxWidth,
+                                                           positions[0].Position.Y, 0);
 
-                //Middle
+                vertices[1].Position = new Vector3(positions[0].Position.X + MaxWidth,
+                                                   positions[0].Position.Y, 0);
+                #endregion
+
+                #region Middle
                 for (int i = 2; i < vertices.Length - 1; i += 2)
                 {
                     float newWidth = MathHelper.Lerp(MaxWidth, 0, (1.0f / vertices.Length) * i);
+                    Vector2 dir;
+                    dir = positions[i].Position - positions[i - 1].Position;
+                    dir.Normalize();
 
-                    vertices[i].Position = new Vector3(positions[i].Position.X - newWidth, positions[i].Position.Y, 0);
-                    vertices[i + 1].Position = new Vector3(positions[i + 1].Position.X + newWidth, positions[i + 1].Position.Y, 0);
+                    double angle = Math.Atan2(dir.Y, dir.X) - MathHelper.ToRadians(90);
+                    Vector2 newDir = new Vector2((float)Math.Cos(angle), (float)Math.Sin(angle));
+
+                    vertices[i].Position = new Vector3(positions[i].Position.X - (newWidth * newDir.X),
+                                                       positions[i].Position.Y - (newWidth * newDir.Y), 0);
+
+                    vertices[i + 1].Position = new Vector3(positions[i + 1].Position.X + (newWidth * newDir.X),
+                                                           positions[i + 1].Position.Y + (newWidth * newDir.Y), 0);
 
                     vertices[i].Color = Color.White;
                     vertices[i + 1].Color = Color.White;
                 }
+                #endregion
 
-                //Tip
-                vertices[40].Position = new Vector3(positions[40].Position.X, positions[40].Position.Y, 0);
+                #region Tip
+                vertices[40].Position = new Vector3(positions[40].Position.X,
+                                                    positions[40].Position.Y, 0); 
+                #endregion
                 #endregion
             }
 
