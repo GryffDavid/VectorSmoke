@@ -21,6 +21,8 @@ namespace VectorSmoke
         Vector2 StartPosition = new Vector2(400, 400);
         Vector2 ControlPoint = new Vector2(400, 360);
 
+        Vector2 ControlPoint2 = new Vector2(400, 360);
+
         float Time;
         Random Random = new Random();
         float Width = 30;
@@ -46,8 +48,8 @@ namespace VectorSmoke
 
         public void Update(GameTime gameTime)
         {
-            //ControlPoint = new Vector2(Mouse.GetState().X, Mouse.GetState().Y);
-            ControlPoint = Vector2.Lerp(ControlPoint, new Vector2(Mouse.GetState().X, Mouse.GetState().Y), 0.05f);
+            //ControlPoint2 = new Vector2(Mouse.GetState().X, Mouse.GetState().Y);
+            ControlPoint2 = Vector2.Lerp(ControlPoint, new Vector2(Mouse.GetState().X, Mouse.GetState().Y), 0.01f);
 
             Time += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
 
@@ -62,6 +64,9 @@ namespace VectorSmoke
             for (int i = 1; i < positions.Count; i++)
             {
                 positions[i].Position += new Vector2(positions[i].HorizontalGravity, -3 * (positions[i].Position.Y/400));
+
+                if (i == 50)
+                    positions[i].Position = Vector2.Lerp(positions[i].Position, ControlPoint2, 0.2f);
             }
 
             if (positions.Count >= 80)
