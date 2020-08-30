@@ -15,10 +15,12 @@ namespace VectorSmoke
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        Texture2D Point;
-        List<SmokeTrail> TrailList = new List<SmokeTrail>();
+
+        //SmokeTrail SmokeTrail = new SmokeTrail(new Vector2(400, 800));
+        List<SmokeTrail> trailList = new List<SmokeTrail>();
         BasicEffect BasicEffect;
         Matrix Projection;
+
         static Random Random = new Random();
 
         public Game1()
@@ -32,20 +34,16 @@ namespace VectorSmoke
         
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
             BasicEffect = new BasicEffect(GraphicsDevice);
             Projection = Matrix.CreateOrthographicOffCenter(0, 1920, 1080, 0, 0, 1);
 
             BasicEffect.Projection = Projection;
             BasicEffect.VertexColorEnabled = true;
 
-            //SmokeTrail2.StartPosition = new Vector2(1920 / 2, 1080 / 2) + new Vector2(-35, 0);
-
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 10; i++)
             {
-                SmokeTrail trail = new SmokeTrail(Random.Next(40, 70));
-                trail.StartPosition = new Vector2(1920 / 2, 1080 / 2) + new Vector2(Random.Next(-50, 50), 0);
-                TrailList.Add(trail);
+                SmokeTrail SmokeTrail = new SmokeTrail(new Vector2(Random.Next(200, 1920-200), 800));
+                trailList.Add(SmokeTrail);
             }
             base.Initialize();
         }
@@ -53,27 +51,16 @@ namespace VectorSmoke
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            Point = Content.Load<Texture2D>("Point");
-            //SmokeTrail.LoadContent(Content);
-            //SmokeTrail2.LoadContent(Content);
-
-            foreach (SmokeTrail trail in TrailList)
-            {
-                trail.LoadContent(Content);
-            }
         }
         
         protected override void UnloadContent()
         {
-            // TODO: Unload any non ContentManager content here
+
         }
         
         protected override void Update(GameTime gameTime)
         {
-            //SmokeTrail.Update(gameTime);
-            //SmokeTrail2.Update(gameTime);
-
-            foreach (SmokeTrail trail in TrailList)
+            foreach (SmokeTrail trail in trailList)
             {
                 trail.Update(gameTime);
             }
@@ -83,19 +70,15 @@ namespace VectorSmoke
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
-
-            foreach (SmokeTrail trail in TrailList)
+            foreach (SmokeTrail trail in trailList)
             {
                 trail.DrawVector(GraphicsDevice, BasicEffect);
             }
-            //SmokeTrail.DrawVector(GraphicsDevice, BasicEffect);
-            //SmokeTrail2.DrawVector(GraphicsDevice, BasicEffect);            
+
+            //SmokeTrail.DrawVector(GraphicsDevice, BasicEffect);            
 
             spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, RasterizerState.CullNone);
-            foreach (SmokeTrail trail in TrailList)
-            {
-                trail.Draw(spriteBatch);
-            }
+
             spriteBatch.End();
 
             base.Draw(gameTime);

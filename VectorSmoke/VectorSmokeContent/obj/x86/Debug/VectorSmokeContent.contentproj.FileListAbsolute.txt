@@ -12,7 +12,7 @@ C:\Users\Gryff\Desktop\Vector Smoke\VectorSmoke9\VectorSmoke\VectorSmokeContent\
 C:\Users\Gryff\Desktop\Vector Smoke\VectorSmoke9.5\VectorSmoke\VectorSmokeContent\obj\x86\Debug\VectorSmokeContent.contentprojResolveAssemblyReference.cache
 C:\Users\Gryff\Desktop\Vector Smoke\VectorSmoke10\VectorSmoke\VectorSmokeContent\obj\x86\Debug\VectorSmokeContent.contentprojResolveAssemblyReference.cache
 C:\Users\Gryff\Desktop\Vector Smoke\VectorSmoke11\VectorSmoke\VectorSmokeContent\obj\x86\Debug\VectorSmokeContent.contentprojResolveAssemblyReference.cache
-G:\Game Test Bench\Vector Smoke\VectorSmoke12 (Complete)\VectorSmoke\VectorSmokeContent\obj\x86\Debug\VectorSmokeContent.contentprojResolveAssemblyReference.cache
-G:\Game Test Bench\Vector Smoke\VectorSmoke12 Fire (Complete)\VectorSmoke\VectorSmokeContent\obj\x86\Debug\VectorSmokeContent.contentprojResolveAssemblyReference.cache
-D:\Game Test Bench\Vector Smoke\VectorSmoke12 Fire (Complete)\VectorSmoke\VectorSmokeContent\obj\x86\Debug\VectorSmokeContent.contentprojResolveAssemblyReference.cache
-D:\Game Test Bench\Vector Smoke\VectorSmoke12 Fire (Complete)\VectorSmoke\VectorSmokeContent\obj\x86\Debug\VectorSmokeContent.contentproj.CoreCompileInputs.cache
+C:\Users\Gryff\Desktop\Vector Smoke\VectorSmoke13\VectorSmoke\VectorSmokeContent\obj\x86\Debug\VectorSmokeContent.contentprojResolveAssemblyReference.cache
+G:\Game Test Bench\Vector Smoke\VectorSmoke13\VectorSmoke\VectorSmokeContent\obj\x86\Debug\VectorSmokeContent.contentprojResolveAssemblyReference.cache
+D:\Game Test Bench\Vector Smoke\VectorSmoke13\VectorSmoke\VectorSmokeContent\obj\x86\Debug\VectorSmokeContent.contentprojResolveAssemblyReference.cache
+D:\Game Test Bench\Vector Smoke\VectorSmoke13\VectorSmoke\VectorSmokeContent\obj\x86\Debug\VectorSmokeContent.contentproj.CoreCompileInputs.cache
