@@ -13,7 +13,8 @@ namespace VectorSmoke
     {
         Texture2D Texture;
 
-        VertexPositionColor[] vertices = new VertexPositionColor[81];
+        VertexPositionColor[] vertices = new VertexPositionColor[41];
+        
 
         public Vector2 StartPosition = new Vector2(1920/2, 1080/2);
 
@@ -23,7 +24,7 @@ namespace VectorSmoke
 
         float CurrentTime, Time2, MaxTime, Time3, MaxTime3;
         static Random Random = new Random();
-        float MaxWidth = 10;
+        public float MaxWidth = 50;
         float t = 0;
         float tMult = 1.0f;
 
@@ -47,12 +48,14 @@ namespace VectorSmoke
         List<SmokePoint> Positions = new List<SmokePoint>();
 
 
-        Color Color = Color.Gray;
+        Color Color = Color.DarkOrange;
 
         float eightSize = 0.25f;
 
-        public SmokeTrail()
+        public SmokeTrail(int num)
         {
+            vertices = new VertexPositionColor[num];
+
             for (int i = 0; i < vertices.Length/2 + 1; i++)
             {
                 SmokePoint smokePoint = new SmokePoint() 
@@ -94,7 +97,7 @@ namespace VectorSmoke
                 Positions.Insert(0, new SmokePoint() 
                 { 
                     Position = StartPosition,
-                    Width = Random.Next(8, 12),
+                    Width = Random.Next(40, 50),
                     Velocity = new Vector2(0, -0.5f),
                     Acceleration = new Vector2(0, -0.05f),
                     Friction = new Vector2(1.0f, 1.0f)
@@ -205,9 +208,9 @@ namespace VectorSmoke
             #region Move the control points
             if (CurrentTime > MaxTime)
             {
-                NextRad1 = Random.Next(100, 500);
-                NextRad2 = Random.Next(100, 250);
-                NextVFriction = MathHelper.Lerp(VFriction, (float)RandomDouble(0.85f, 0.999f), 0.1f);
+                NextRad1 = Random.Next(100, 800);
+                NextRad2 = Random.Next(100, 500);
+                NextVFriction = MathHelper.Lerp(VFriction, (float)RandomDouble(0.85f, 0.999f), 0.2f);
 
                 CurrentTime = 0;
 
@@ -215,9 +218,9 @@ namespace VectorSmoke
                 eightSize = (float)RandomDouble(0.1f, 0.8f);
             }
 
-            Rad1 = MathHelper.Lerp(Rad1, NextRad1, 0.2f);
-            Rad2 = MathHelper.Lerp(Rad2, NextRad2, 0.2f);
-            VFriction = MathHelper.Lerp(VFriction, NextVFriction, 0.06f);
+            Rad1 = MathHelper.Lerp(Rad1, NextRad1, 0.28f);
+            Rad2 = MathHelper.Lerp(Rad2, NextRad2, 0.35f);
+            VFriction = MathHelper.Lerp(VFriction, NextVFriction, 0.1f);
 
             t += 0.1f;
 
@@ -240,21 +243,21 @@ namespace VectorSmoke
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(Texture, StartPosition, Color.Red);
+            //spriteBatch.Draw(Texture, StartPosition, Color.Red);
 
-            spriteBatch.Draw(Texture, ControlPoint1, Color.Orange);
-            spriteBatch.Draw(Texture, ControlPoint2, Color.Gold);
-            spriteBatch.Draw(Texture, ControlPoint3, Color.Lime);
+            //spriteBatch.Draw(Texture, ControlPoint1, Color.Orange);
+            //spriteBatch.Draw(Texture, ControlPoint2, Color.Gold);
+            //spriteBatch.Draw(Texture, ControlPoint3, Color.Lime);
 
-            foreach (SmokePoint point in Positions)
-            {
-                spriteBatch.Draw(Texture, point.Position, Color.Red);
-            }
-
-            //foreach (VertexPositionColor vert in vertices)
+            //foreach (SmokePoint point in Positions)
             //{
-            //    spriteBatch.Draw(Texture, new Rectangle((int)vert.Position.X, (int)vert.Position.Y, 2, 2), null, Color.White, 0, new Vector2(1, 1), SpriteEffects.None, 0);
+            //    spriteBatch.Draw(Texture, point.Position, Color.Red);
             //}
+
+            ////foreach (VertexPositionColor vert in vertices)
+            ////{
+            ////    spriteBatch.Draw(Texture, new Rectangle((int)vert.Position.X, (int)vert.Position.Y, 2, 2), null, Color.White, 0, new Vector2(1, 1), SpriteEffects.None, 0);
+            ////}
 
             //for (int i = 0; i < vertices.Count(); i++)
             //{

@@ -7,7 +7,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>G:\Game Test Bench\Vector Smoke\VectorSmoke11\VectorSmoke\VectorSmoke\bin\x86\Debug\Content\Point.xnb</Output>
+      <Output>D:\Game Test Bench\Vector Smoke\VectorSmoke12 Fire (Complete)\VectorSmoke\VectorSmoke\bin\x86\Debug\Content\Point.xnb</Output>
       <Time>2016-11-02T12:01:08.4735982+02:00</Time>
     </Item>
     <Item>
@@ -16,7 +16,7 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>G:\Game Test Bench\Vector Smoke\VectorSmoke11\VectorSmoke\VectorSmoke\bin\x86\Debug\Content\SpriteFont.xnb</Output>
+      <Output>D:\Game Test Bench\Vector Smoke\VectorSmoke12 Fire (Complete)\VectorSmoke\VectorSmoke\bin\x86\Debug\Content\SpriteFont.xnb</Output>
       <Time>2016-11-13T12:54:06.1204502+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
@@ -26,10 +26,10 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>G:\Game Test Bench\Vector Smoke\VectorSmoke11\VectorSmoke\VectorSmokeContent\</RootDirectory>
-      <LoggerRootDirectory>G:\Game Test Bench\Vector Smoke\VectorSmoke11\VectorSmoke\VectorSmoke\</LoggerRootDirectory>
-      <IntermediateDirectory>G:\Game Test Bench\Vector Smoke\VectorSmoke11\VectorSmoke\VectorSmoke\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>G:\Game Test Bench\Vector Smoke\VectorSmoke11\VectorSmoke\VectorSmoke\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>D:\Game Test Bench\Vector Smoke\VectorSmoke12 Fire (Complete)\VectorSmoke\VectorSmokeContent\</RootDirectory>
+      <LoggerRootDirectory>D:\Game Test Bench\Vector Smoke\VectorSmoke12 Fire (Complete)\VectorSmoke\VectorSmoke\</LoggerRootDirectory>
+      <IntermediateDirectory>D:\Game Test Bench\Vector Smoke\VectorSmoke12 Fire (Complete)\VectorSmoke\VectorSmoke\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>D:\Game Test Bench\Vector Smoke\VectorSmoke12 Fire (Complete)\VectorSmoke\VectorSmoke\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
@@ -57,8 +57,8 @@
         <Value>2011-09-01T16:22:30+02:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2015-08-25T13:25:23.3416409+02:00</Value>
+        <Key>C:\WINDOWS\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2017-12-19T13:23:30.2919385+02:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

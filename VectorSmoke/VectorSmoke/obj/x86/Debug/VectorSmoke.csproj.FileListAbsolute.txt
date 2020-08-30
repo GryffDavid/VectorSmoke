@@ -104,11 +104,38 @@ C:\Users\Gryff\Desktop\Vector Smoke\VectorSmoke11\VectorSmoke\VectorSmoke\obj\x8
 C:\Users\Gryff\Desktop\Vector Smoke\VectorSmoke11\VectorSmoke\VectorSmoke\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Gryff\Desktop\Vector Smoke\VectorSmoke11\VectorSmoke\VectorSmoke\obj\x86\Debug\VectorSmoke.exe
 C:\Users\Gryff\Desktop\Vector Smoke\VectorSmoke11\VectorSmoke\VectorSmoke\obj\x86\Debug\VectorSmoke.pdb
-G:\Game Test Bench\Vector Smoke\VectorSmoke11\VectorSmoke\VectorSmoke\bin\x86\Debug\Content\Point.xnb
-G:\Game Test Bench\Vector Smoke\VectorSmoke11\VectorSmoke\VectorSmoke\bin\x86\Debug\Content\SpriteFont.xnb
-G:\Game Test Bench\Vector Smoke\VectorSmoke11\VectorSmoke\VectorSmoke\bin\x86\Debug\VectorSmoke.exe
-G:\Game Test Bench\Vector Smoke\VectorSmoke11\VectorSmoke\VectorSmoke\bin\x86\Debug\VectorSmoke.pdb
-G:\Game Test Bench\Vector Smoke\VectorSmoke11\VectorSmoke\VectorSmoke\obj\x86\Debug\VectorSmoke.csprojResolveAssemblyReference.cache
-G:\Game Test Bench\Vector Smoke\VectorSmoke11\VectorSmoke\VectorSmoke\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-G:\Game Test Bench\Vector Smoke\VectorSmoke11\VectorSmoke\VectorSmoke\obj\x86\Debug\VectorSmoke.exe
-G:\Game Test Bench\Vector Smoke\VectorSmoke11\VectorSmoke\VectorSmoke\obj\x86\Debug\VectorSmoke.pdb
+G:\Game Test Bench\Vector Smoke\VectorSmoke12 (Complete)\VectorSmoke\VectorSmoke\bin\x86\Debug\Content\Point.xnb
+G:\Game Test Bench\Vector Smoke\VectorSmoke12 (Complete)\VectorSmoke\VectorSmoke\bin\x86\Debug\Content\SpriteFont.xnb
+G:\Game Test Bench\Vector Smoke\VectorSmoke12 (Complete)\VectorSmoke\VectorSmoke\bin\x86\Debug\VectorSmoke.exe
+G:\Game Test Bench\Vector Smoke\VectorSmoke12 (Complete)\VectorSmoke\VectorSmoke\bin\x86\Debug\VectorSmoke.pdb
+G:\Game Test Bench\Vector Smoke\VectorSmoke12 (Complete)\VectorSmoke\VectorSmoke\obj\x86\Debug\VectorSmoke.csprojResolveAssemblyReference.cache
+G:\Game Test Bench\Vector Smoke\VectorSmoke12 (Complete)\VectorSmoke\VectorSmoke\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+G:\Game Test Bench\Vector Smoke\VectorSmoke12 (Complete)\VectorSmoke\VectorSmoke\obj\x86\Debug\VectorSmoke.exe
+G:\Game Test Bench\Vector Smoke\VectorSmoke12 (Complete)\VectorSmoke\VectorSmoke\obj\x86\Debug\VectorSmoke.pdb
+G:\Game Test Bench\Vector Smoke\VectorSmoke12 Fire (Complete)\VectorSmoke\VectorSmoke\bin\x86\Debug\Content\Point.xnb
+G:\Game Test Bench\Vector Smoke\VectorSmoke12 Fire (Complete)\VectorSmoke\VectorSmoke\bin\x86\Debug\Content\SpriteFont.xnb
+G:\Game Test Bench\Vector Smoke\VectorSmoke12 Fire (Complete)\VectorSmoke\VectorSmoke\bin\x86\Debug\VectorSmoke.exe
+G:\Game Test Bench\Vector Smoke\VectorSmoke12 Fire (Complete)\VectorSmoke\VectorSmoke\bin\x86\Debug\VectorSmoke.pdb
+G:\Game Test Bench\Vector Smoke\VectorSmoke12 Fire (Complete)\VectorSmoke\VectorSmoke\obj\x86\Debug\VectorSmoke.csprojResolveAssemblyReference.cache
+G:\Game Test Bench\Vector Smoke\VectorSmoke12 Fire (Complete)\VectorSmoke\VectorSmoke\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+G:\Game Test Bench\Vector Smoke\VectorSmoke12 Fire (Complete)\VectorSmoke\VectorSmoke\obj\x86\Debug\VectorSmoke.exe
+G:\Game Test Bench\Vector Smoke\VectorSmoke12 Fire (Complete)\VectorSmoke\VectorSmoke\obj\x86\Debug\VectorSmoke.pdb
+D:\Game Test Bench\Vector Smoke\VectorSmoke12 Fire (Complete)\VectorSmoke\VectorSmoke\bin\x86\Debug\Content\Point.xnb
+D:\Game Test Bench\Vector Smoke\VectorSmoke12 Fire (Complete)\VectorSmoke\VectorSmoke\bin\x86\Debug\Content\SpriteFont.xnb
+D:\Game Test Bench\Vector Smoke\VectorSmoke12 Fire (Complete)\VectorSmoke\VectorSmoke\bin\x86\Debug\VectorSmoke.exe
+D:\Game Test Bench\Vector Smoke\VectorSmoke12 Fire (Complete)\VectorSmoke\VectorSmoke\bin\x86\Debug\VectorSmoke.pdb
+D:\Game Test Bench\Vector Smoke\VectorSmoke12 Fire (Complete)\VectorSmoke\VectorSmoke\bin\x86\Debug\Microsoft.Xna.Framework.dll
+D:\Game Test Bench\Vector Smoke\VectorSmoke12 Fire (Complete)\VectorSmoke\VectorSmoke\bin\x86\Debug\Microsoft.Xna.Framework.Game.dll
+D:\Game Test Bench\Vector Smoke\VectorSmoke12 Fire (Complete)\VectorSmoke\VectorSmoke\bin\x86\Debug\Microsoft.Xna.Framework.GamerServices.dll
+D:\Game Test Bench\Vector Smoke\VectorSmoke12 Fire (Complete)\VectorSmoke\VectorSmoke\bin\x86\Debug\Microsoft.Xna.Framework.Graphics.dll
+D:\Game Test Bench\Vector Smoke\VectorSmoke12 Fire (Complete)\VectorSmoke\VectorSmoke\bin\x86\Debug\Microsoft.Xna.Framework.Input.Touch.dll
+D:\Game Test Bench\Vector Smoke\VectorSmoke12 Fire (Complete)\VectorSmoke\VectorSmoke\bin\x86\Debug\Microsoft.Xna.Framework.xml
+D:\Game Test Bench\Vector Smoke\VectorSmoke12 Fire (Complete)\VectorSmoke\VectorSmoke\bin\x86\Debug\Microsoft.Xna.Framework.Game.xml
+D:\Game Test Bench\Vector Smoke\VectorSmoke12 Fire (Complete)\VectorSmoke\VectorSmoke\bin\x86\Debug\Microsoft.Xna.Framework.Graphics.xml
+D:\Game Test Bench\Vector Smoke\VectorSmoke12 Fire (Complete)\VectorSmoke\VectorSmoke\bin\x86\Debug\Microsoft.Xna.Framework.GamerServices.xml
+D:\Game Test Bench\Vector Smoke\VectorSmoke12 Fire (Complete)\VectorSmoke\VectorSmoke\bin\x86\Debug\Microsoft.Xna.Framework.Input.Touch.xml
+D:\Game Test Bench\Vector Smoke\VectorSmoke12 Fire (Complete)\VectorSmoke\VectorSmoke\obj\x86\Debug\VectorSmoke.csprojResolveAssemblyReference.cache
+D:\Game Test Bench\Vector Smoke\VectorSmoke12 Fire (Complete)\VectorSmoke\VectorSmoke\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+D:\Game Test Bench\Vector Smoke\VectorSmoke12 Fire (Complete)\VectorSmoke\VectorSmoke\obj\x86\Debug\VectorSmoke.csproj.CoreCompileInputs.cache
+D:\Game Test Bench\Vector Smoke\VectorSmoke12 Fire (Complete)\VectorSmoke\VectorSmoke\obj\x86\Debug\VectorSmoke.exe
+D:\Game Test Bench\Vector Smoke\VectorSmoke12 Fire (Complete)\VectorSmoke\VectorSmoke\obj\x86\Debug\VectorSmoke.pdb
