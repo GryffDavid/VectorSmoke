@@ -17,17 +17,24 @@ namespace VectorSmoke
         SpriteBatch spriteBatch;
         Texture2D Point;
         SmokeTrail SmokeTrail = new SmokeTrail();
+        BasicEffect BasicEffect;
+        Matrix Projection;
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
+            graphics.PreferredBackBufferWidth = 1280;
+            graphics.PreferredBackBufferHeight = 720;
             Content.RootDirectory = "Content";
         }
         
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            BasicEffect = new BasicEffect(GraphicsDevice);
+            Projection = Matrix.CreateOrthographicOffCenter(0, 1280, 720, 0, 0, 1);
 
+            BasicEffect.Projection = Projection;
             base.Initialize();
         }
         
@@ -52,7 +59,9 @@ namespace VectorSmoke
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
-            spriteBatch.Begin();
+            SmokeTrail.DrawVector(GraphicsDevice, BasicEffect);            
+
+            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, RasterizerState.CullNone);
             SmokeTrail.Draw(spriteBatch);
             spriteBatch.End();
 
