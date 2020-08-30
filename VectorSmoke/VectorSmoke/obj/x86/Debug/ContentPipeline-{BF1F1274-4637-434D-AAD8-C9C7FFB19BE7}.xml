@@ -7,8 +7,17 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Gryff\Desktop\VectorSmoke5\VectorSmoke\VectorSmoke\bin\x86\Debug\Content\Point.xnb</Output>
+      <Output>C:\Users\Gryff\Desktop\Vector Smoke\VectorSmoke6\VectorSmoke\VectorSmoke\bin\x86\Debug\Content\Point.xnb</Output>
       <Time>2016-11-02T12:01:08.4735982+02:00</Time>
+    </Item>
+    <Item>
+      <Source>SpriteFont.spritefont</Source>
+      <Name>SpriteFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Gryff\Desktop\Vector Smoke\VectorSmoke6\VectorSmoke\VectorSmoke\bin\x86\Debug\Content\SpriteFont.xnb</Output>
+      <Time>2016-11-13T12:54:06.1204502+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -17,10 +26,10 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Gryff\Desktop\VectorSmoke5\VectorSmoke\VectorSmokeContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Gryff\Desktop\VectorSmoke5\VectorSmoke\VectorSmoke\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Gryff\Desktop\VectorSmoke5\VectorSmoke\VectorSmoke\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Gryff\Desktop\VectorSmoke5\VectorSmoke\VectorSmoke\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Gryff\Desktop\Vector Smoke\VectorSmoke6\VectorSmoke\VectorSmokeContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Gryff\Desktop\Vector Smoke\VectorSmoke6\VectorSmoke\VectorSmoke\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Gryff\Desktop\Vector Smoke\VectorSmoke6\VectorSmoke\VectorSmoke\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Gryff\Desktop\Vector Smoke\VectorSmoke6\VectorSmoke\VectorSmoke\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

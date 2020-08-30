@@ -25,6 +25,7 @@ namespace VectorSmoke
             graphics = new GraphicsDeviceManager(this);
             graphics.PreferredBackBufferWidth = 1280;
             graphics.PreferredBackBufferHeight = 720;
+            //graphics.IsFullScreen = true;
             Content.RootDirectory = "Content";
         }
         
