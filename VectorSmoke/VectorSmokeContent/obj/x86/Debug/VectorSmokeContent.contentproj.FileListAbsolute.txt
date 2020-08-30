@@ -1,4 +1,5 @@
 C:\Users\Gryff\Desktop\VectorSmoke\VectorSmoke\VectorSmokeContent\obj\x86\Debug\VectorSmokeContent.contentprojResolveAssemblyReference.cache
 C:\Users\Gryff\Desktop\VectorSmoke2\VectorSmoke\VectorSmokeContent\obj\x86\Debug\VectorSmokeContent.contentprojResolveAssemblyReference.cache
 C:\Users\Gryff\Desktop\VectorSmoke3\VectorSmoke\VectorSmokeContent\obj\x86\Debug\VectorSmokeContent.contentprojResolveAssemblyReference.cache
-C:\Users\Gryff\Desktop\Vector Smoke\VectorSmoke3\VectorSmoke\VectorSmokeContent\obj\x86\Debug\VectorSmokeContent.contentprojResolveAssemblyReference.cache
+C:\Users\Gryff\Desktop\VectorSmoke4\VectorSmoke\VectorSmokeContent\obj\x86\Debug\VectorSmokeContent.contentprojResolveAssemblyReference.cache
+G:\Game Test Bench\Vector Smoke\VectorSmoke4\VectorSmoke\VectorSmokeContent\obj\x86\Debug\VectorSmokeContent.contentprojResolveAssemblyReference.cache
