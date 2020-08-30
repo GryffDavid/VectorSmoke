@@ -15,7 +15,7 @@ namespace VectorSmoke
 
         VertexPositionColor[] vertices = new VertexPositionColor[81];
 
-        Vector2 StartPosition = new Vector2(1920/2, 1080/2);
+        public Vector2 StartPosition = new Vector2(1920/2, 1080/2);
 
         Vector2 ControlPoint1 = new Vector2(400, 600);
         Vector2 ControlPoint2 = new Vector2(200, 200);
@@ -47,7 +47,7 @@ namespace VectorSmoke
         List<SmokePoint> Positions = new List<SmokePoint>();
 
 
-        Color Color = Color.White * 0.5f;
+        Color Color = Color.Gray;
 
         float eightSize = 0.25f;
 
@@ -57,7 +57,10 @@ namespace VectorSmoke
             {
                 SmokePoint smokePoint = new SmokePoint() 
                 { 
-                    Position = new Vector2(400, 600)
+                    Position = StartPosition,
+                    Acceleration = new Vector2(0, -0.05f),
+                    Velocity = new Vector2(0, -0.5f),
+                    Friction = new Vector2(1,1)
                 };
                 smokePoint.Width = Random.Next(10, 20);
 
@@ -85,12 +88,15 @@ namespace VectorSmoke
             {
                 if (Positions.Count > vertices.Length/2)
                 {
-                    Positions.RemoveAt(vertices.Length/2);
+                    Positions.RemoveAt(vertices.Length / 2);
                 }
 
                 Positions.Insert(0, new SmokePoint() 
                 { 
-                    Position = StartPosition, Width = Random.Next(8, 12),
+                    Position = StartPosition,
+                    Width = Random.Next(8, 12),
+                    Velocity = new Vector2(0, -0.5f),
+                    Acceleration = new Vector2(0, -0.05f),
                     Friction = new Vector2(1.0f, 1.0f)
                 });
 
@@ -104,17 +110,59 @@ namespace VectorSmoke
                 Vector2 Dir, NewDir;
                 double angle;
 
-                Dir = Positions[i - 1].Position - Positions[i + 1].Position;
+                Dir = Positions[i].Position - Positions[i + 1].Position;
                 Dir.Normalize();
 
                 angle = Math.Atan2(Dir.Y, Dir.X) - MathHelper.ToRadians(90);
                 NewDir = new Vector2((float)Math.Cos(angle), (float)Math.Sin(angle));
                 NewDir.Normalize();
 
+                if (float.IsNaN(NewDir.X))
+                {
+                    NewDir = new Vector2(-1, 0);
+                }
+
                 Positions[i].Direction = NewDir;
             }
 
             Positions[0].Direction = new Vector2(1, 0);
+            #endregion
+
+
+
+            #region Apply forces to the points
+            for (int i = Positions.Count - 1; i > 0; i--)
+            {
+                Positions[i].Velocity += (Positions[i].Acceleration * Positions[i].Friction);
+                Positions[i].Position += Positions[i].Velocity;
+
+                Positions[i].Friction.Y *= (Positions[i].Position.Y / StartPosition.Y) * VFriction;
+
+                if (Positions[i].Position.Y > ControlPoint2.Y)
+                {
+                    Positions[i].Acceleration.X -= -Vector2.Normalize((ControlPoint2 - StartPosition)).X * 0.001f;
+                }
+
+                if (Positions[i].Position.Y > ControlPoint3.Y &&
+                    Positions[i].Position.Y < ControlPoint2.Y)
+                {
+                    Positions[i].Acceleration.X -= -Vector2.Normalize((ControlPoint2 - StartPosition)).X * 0.001f;
+                }
+
+                if (Positions[i].Position.Y < ControlPoint3.Y)
+                {
+                    float dist = MathHelper.Clamp(Math.Abs(Positions[i].Position.X - StartPosition.X), 0, 120);
+
+                    float perc = 100 - ((100 / 120) * dist);
+                    Positions[i].Friction.Y = 1.0f - (perc / 200f);
+                    Positions[i].Friction.X = 1.0f - (perc / 150f);
+                }
+
+                float dist2 = MathHelper.Clamp(Math.Abs(Positions[i].Position.X - StartPosition.X), 0, 120);
+
+                float perc2 = 100 - ((100 / 120) * dist2);
+                Positions[i].Friction.X = 1.0f - (perc2 / 200f);
+            }
             #endregion
 
             #region Vertices
@@ -131,42 +179,12 @@ namespace VectorSmoke
                 vertices[i + 1].Position = new Vector3(Positions[i / 2].Position.X + (newDir.X * newWidth),
                                                        Positions[i / 2].Position.Y + (newDir.Y * newWidth), 0);
 
-                vertices[i].Color = Color.White;
-                vertices[i + 1].Color = Color.White;
+                vertices[i].Color = Color;
+                vertices[i + 1].Color = Color;
             }
 
-            vertices[vertices.Length - 1].Position = new Vector3(Positions[Positions.Count-1].Position.X, 
-                                                                 Positions[Positions.Count-1].Position.Y, 0);
-            #endregion
-
-            #region Apply forces to the points
-            for (int i = 1; i < Positions.Count; i++)
-            {
-                Positions[i].Velocity = new Vector2(
-                    Positions[i].Acceleration.X, 
-                    (-20 * (Positions[i].Position.Y / 800)) * Positions[i].Friction.Y);
-
-                Positions[i].Position += Positions[i].Velocity;
-
-                if (Positions[i].Position.Y > ControlPoint2.Y)
-                {
-                    Positions[i].Acceleration.X -= -Vector2.Normalize((ControlPoint2 - StartPosition)).X * 0.08f;
-                }
-
-                if (Positions[i].Position.Y > ControlPoint3.Y &&
-                    Positions[i].Position.Y < ControlPoint2.Y)
-                {
-                    Positions[i].Acceleration.X -= -Vector2.Normalize((ControlPoint2 - StartPosition)).X * 0.2f;
-                }
-
-                if (Positions[i].Position.Y < ControlPoint3.Y)
-                {
-                    float dist = MathHelper.Clamp(Math.Abs(Positions[i].Position.X - StartPosition.X), 0, 120);
-
-                    float perc = 100 - ((100 / 120) * dist);
-                    Positions[i].Friction.Y = 1.0f - (perc / 200f);
-                }
-            }
+            vertices[vertices.Length - 1].Position = new Vector3(Positions[Positions.Count - 1].Position.X,
+                                                                 Positions[Positions.Count - 1].Position.Y, 0);
             #endregion
 
             if (Time3 > MaxTime3)
@@ -189,7 +207,7 @@ namespace VectorSmoke
             {
                 NextRad1 = Random.Next(100, 500);
                 NextRad2 = Random.Next(100, 250);
-                NextVFriction = MathHelper.Lerp(VFriction, (float)RandomDouble(0.7f, 0.999f), 0.1f);
+                NextVFriction = MathHelper.Lerp(VFriction, (float)RandomDouble(0.85f, 0.999f), 0.1f);
 
                 CurrentTime = 0;
 
@@ -199,14 +217,14 @@ namespace VectorSmoke
 
             Rad1 = MathHelper.Lerp(Rad1, NextRad1, 0.2f);
             Rad2 = MathHelper.Lerp(Rad2, NextRad2, 0.2f);
-            VFriction = MathHelper.Lerp(VFriction, NextVFriction, 0.02f);
-            
+            VFriction = MathHelper.Lerp(VFriction, NextVFriction, 0.06f);
+
             t += 0.1f;
 
             ControlPoint1 = new Vector2(
-                2 * (float)Math.Cos(eightSize * t),
-                    (float)Math.Sin((eightSize * 2f) * t)) * 200f + new Vector2(1920/2, 350);
-            
+                1.2f * (float)Math.Cos(eightSize * t),
+                    (float)Math.Sin((eightSize * 2f) * t)) * 100f + new Vector2(1920 / 2, 450);
+
             ControlPoint2 = new Vector2(
                 Rad1 * (float)Math.Cos(t * tMult),
                 Rad2 * (float)Math.Sin(t * tMult)) + ControlPoint1;
@@ -222,16 +240,16 @@ namespace VectorSmoke
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            //spriteBatch.Draw(Texture, StartPosition, Color.Red);
+            spriteBatch.Draw(Texture, StartPosition, Color.Red);
 
-            //spriteBatch.Draw(Texture, ControlPoint1, Color.Orange);
-            //spriteBatch.Draw(Texture, ControlPoint2, Color.Gold);
-            //spriteBatch.Draw(Texture, ControlPoint3, Color.Lime);
+            spriteBatch.Draw(Texture, ControlPoint1, Color.Orange);
+            spriteBatch.Draw(Texture, ControlPoint2, Color.Gold);
+            spriteBatch.Draw(Texture, ControlPoint3, Color.Lime);
 
-            //foreach (SmokePoint point in Positions)
-            //{
-            //    spriteBatch.Draw(Texture, point.Position, Color.Red);
-            //}
+            foreach (SmokePoint point in Positions)
+            {
+                spriteBatch.Draw(Texture, point.Position, Color.Red);
+            }
 
             //foreach (VertexPositionColor vert in vertices)
             //{

@@ -17,6 +17,7 @@ namespace VectorSmoke
         SpriteBatch spriteBatch;
         Texture2D Point;
         SmokeTrail SmokeTrail = new SmokeTrail();
+        SmokeTrail SmokeTrail2 = new SmokeTrail();
         BasicEffect BasicEffect;
         Matrix Projection;
 
@@ -45,6 +46,9 @@ namespace VectorSmoke
             spriteBatch = new SpriteBatch(GraphicsDevice);
             Point = Content.Load<Texture2D>("Point");
             SmokeTrail.LoadContent(Content);
+            SmokeTrail2.LoadContent(Content);
+
+            SmokeTrail2.StartPosition = new Vector2(1920 / 2 + 80, 1080 / 2);
         }
         
         protected override void UnloadContent()
@@ -55,16 +59,18 @@ namespace VectorSmoke
         protected override void Update(GameTime gameTime)
         {
             SmokeTrail.Update(gameTime);
+            SmokeTrail2.Update(gameTime);
             base.Update(gameTime);
         }
         
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
-            SmokeTrail.DrawVector(GraphicsDevice, BasicEffect);            
+            //SmokeTrail.DrawVector(GraphicsDevice, BasicEffect);            
 
             spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, RasterizerState.CullNone);
             SmokeTrail.Draw(spriteBatch);
+            SmokeTrail2.Draw(spriteBatch);
             spriteBatch.End();
 
             base.Draw(gameTime);

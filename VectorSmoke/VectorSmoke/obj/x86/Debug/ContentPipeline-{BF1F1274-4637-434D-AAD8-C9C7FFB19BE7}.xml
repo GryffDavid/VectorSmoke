@@ -7,7 +7,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Gryff\Desktop\Vector Smoke\VectorSmoke10\VectorSmoke\VectorSmoke\bin\x86\Debug\Content\Point.xnb</Output>
+      <Output>G:\Game Test Bench\Vector Smoke\VectorSmoke11\VectorSmoke\VectorSmoke\bin\x86\Debug\Content\Point.xnb</Output>
       <Time>2016-11-02T12:01:08.4735982+02:00</Time>
     </Item>
     <Item>
@@ -16,7 +16,7 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Gryff\Desktop\Vector Smoke\VectorSmoke10\VectorSmoke\VectorSmoke\bin\x86\Debug\Content\SpriteFont.xnb</Output>
+      <Output>G:\Game Test Bench\Vector Smoke\VectorSmoke11\VectorSmoke\VectorSmoke\bin\x86\Debug\Content\SpriteFont.xnb</Output>
       <Time>2016-11-13T12:54:06.1204502+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
@@ -26,10 +26,10 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Gryff\Desktop\Vector Smoke\VectorSmoke10\VectorSmoke\VectorSmokeContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Gryff\Desktop\Vector Smoke\VectorSmoke10\VectorSmoke\VectorSmoke\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Gryff\Desktop\Vector Smoke\VectorSmoke10\VectorSmoke\VectorSmoke\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Gryff\Desktop\Vector Smoke\VectorSmoke10\VectorSmoke\VectorSmoke\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>G:\Game Test Bench\Vector Smoke\VectorSmoke11\VectorSmoke\VectorSmokeContent\</RootDirectory>
+      <LoggerRootDirectory>G:\Game Test Bench\Vector Smoke\VectorSmoke11\VectorSmoke\VectorSmoke\</LoggerRootDirectory>
+      <IntermediateDirectory>G:\Game Test Bench\Vector Smoke\VectorSmoke11\VectorSmoke\VectorSmoke\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>G:\Game Test Bench\Vector Smoke\VectorSmoke11\VectorSmoke\VectorSmoke\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
